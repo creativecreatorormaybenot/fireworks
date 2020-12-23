@@ -20,7 +20,7 @@ jobs:
   analyze:
     timeout-minutes: 7
     runs-on: ubuntu-latest
-    name: Analysis of ${{ matrix.package }} (${{ matrix.channel }})
+    name: ${{ matrix.package }} analysis on ${{ matrix.channel }}
     strategy:
       matrix:
         channel:
