@@ -1,1 +1,1 @@
-# fireworks
+# [fireworks](https://fireworks.creativemaybeno.dev)
