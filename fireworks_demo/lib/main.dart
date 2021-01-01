@@ -57,17 +57,20 @@ class _FireworksState extends State<_Fireworks>
                         alignment: Alignment.topLeft,
                         child: Tooltip(
                           message: 'fireworks repo on GitHub',
-                          child: GestureDetector(
-                            onTap: () {
-                              launch(
-                                  'https://github.com/creativecreatorormaybenot/fireworks');
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(40),
-                              child: Image.asset(
-                                'assets/github.png',
-                                width: 96,
-                                height: 96,
+                          child: MouseRegion(
+                            cursor: MaterialStateMouseCursor.clickable,
+                            child: GestureDetector(
+                              onTap: () {
+                                launch(
+                                    'https://github.com/creativecreatorormaybenot/fireworks');
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(40),
+                                child: Image.asset(
+                                  'assets/github.png',
+                                  width: 96,
+                                  height: 96,
+                                ),
                               ),
                             ),
                           ),
@@ -77,16 +80,19 @@ class _FireworksState extends State<_Fireworks>
                         alignment: Alignment.topRight,
                         child: Tooltip(
                           message: '@creativemaybeno on Twitter',
-                          child: GestureDetector(
-                            onTap: () {
-                              launch('https://twitter.com/creativemaybeno');
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(40),
-                              child: Image.asset(
-                                'assets/twitter.png',
-                                width: 96,
-                                height: 96,
+                          child: MouseRegion(
+                            cursor: MaterialStateMouseCursor.clickable,
+                            child: GestureDetector(
+                              onTap: () {
+                                launch('https://twitter.com/creativemaybeno');
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(40),
+                                child: Image.asset(
+                                  'assets/twitter.png',
+                                  width: 96,
+                                  height: 96,
+                                ),
                               ),
                             ),
                           ),
