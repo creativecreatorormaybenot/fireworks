@@ -3,7 +3,7 @@ name: Demo deployment
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'fireworks/lib/**'
       - 'fireworks_demo/lib/**'
