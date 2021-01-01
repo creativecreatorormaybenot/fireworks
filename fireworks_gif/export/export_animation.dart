@@ -37,7 +37,7 @@ void main() async {
           'fireworks/${'$i'.padLeft(fileNameWidth, '0')}'
           '.png',
           null);
-      await matcher.matchAsync(find.byType(SizedBox));
+      await matcher.matchAsync(find.byType(FireworksApp));
     }
   }, timeout: Timeout(const Duration(hours: 1)));
 }
