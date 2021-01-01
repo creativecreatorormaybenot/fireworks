@@ -25,7 +25,7 @@ class FireworkParticle extends FireworkObjectWithTrail {
 
   double velocity;
   final double friction = .96;
-  final double gravity = 2.5;
+  final double gravity = 2.35;
 
   final double hue;
   final double brightness;

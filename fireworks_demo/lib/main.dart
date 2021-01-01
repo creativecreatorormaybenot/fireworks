@@ -84,7 +84,7 @@ class _FireworksState extends State<_Fireworks>
                             cursor: MaterialStateMouseCursor.clickable,
                             child: GestureDetector(
                               onTap: () {
-                                launch('https://twitter.com/creativemaybeno');
+                                launch('https://twitter.com/creativemaybeno/status/1344848563264770048?s=20');
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(40),
