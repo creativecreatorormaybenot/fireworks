@@ -47,7 +47,7 @@ class RenderFireworks extends RenderBox {
 
   @override
   void performLayout() {
-    final year = DateTime.now().add(Duration(days: 333)).year.toString();
+    final year = DateTime.now().add(Duration(days: 65)).year.toString();
     final fontSize = constraints.maxWidth / year.length * 5 / 4;
 
     _yearStrokePainter = TextPainter(
