@@ -156,7 +156,7 @@ class FireworkController implements Listenable {
   /// will be spawned.
   ///
   /// Set this to [Duration.zero] if you want to forbid manual spawns.
-  Duration rocketSpawnTimeout = Duration(milliseconds: 24);
+  Duration rocketSpawnTimeout = Duration(milliseconds: 234);
 
   /// Launches a new [FireworkRocket] with the given [target].
   ///

@@ -1,0 +1,46 @@
+name: Demo deployment
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'fireworks/lib/**'
+      - 'fireworks_demo/lib/**'
+      - 'fireworks_demo/web/**'
+      - 'fireworks_demo/pubspec.yaml'
+      - '.github/workflows/web_deploy.yml'
+
+jobs:
+  demo-deploy:
+    timeout-minutes: 6
+    runs-on: ubuntu-latest
+    name: Fireworks demo page
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+      - uses: subosito/flutter-action@v1.4.0
+        with:
+          channel: 'beta'
+
+      - name: Build demo web app
+        run: |
+          cd fireworks_demo
+          flutter pub get
+          flutter config --enable-web
+          flutter build web --no-sound-null-safety --web-renderer canvaskit
+          cd build/web
+          touch ".nojekyll"
+          echo "fireworks.creativemaybeno.dev" > CNAME
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: fireworks_demo/build/web
+          GIT_CONFIG_NAME: creativecreatorormaybenot
+          GIT_CONFIG_EMAIL: creativecreatorormaybenot@gmail.com
+          COMMIT_MESSAGE: Deploy fireworks demo web page
