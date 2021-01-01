@@ -24042,7 +24042,7 @@ o=Math.sin(o)
 l=h.f
 k=p.$ti
 g=k.c
-h.b=new P.bQ(g.a(p.a+n*m),g.a(p.b+(o*l+2.5)),k)
+h.b=new P.bQ(g.a(p.a+n*m),g.a(p.b+(o*l+2.35)),k)
 h.Q=h.Q-h.ch}if(!!s.fixed$length)H.j(P.A(d))
 C.b.lD(s,new Y.Hd(e),!0)
 if(!!r.fixed$length)H.j(P.A(d))
@@ -24051,7 +24051,7 @@ for(s=e.y,r=P.ax(s,!0,t.M),q=r.length,j=0;j<q;++j){f=r[j]
 if(!C.b.C(s,f))continue
 f.$0()}},
 Gx:function(a){var s,r,q,p
-for(s=this.c,r=this.e,q=a.ch,p=0;p<124;++p)s.push(U.a5e(q,a.b,r))},
+for(s=this.c,r=this.e,q=a.ch,p=0;p<96;++p)s.push(U.a5e(q,a.b,r))},
 $ial:1}
 Y.Hd.prototype={
 $1:function(a){if(!(a.y>=a.x))return!1
@@ -24236,7 +24236,7 @@ F.PJ.prototype={
 $0:function(){T.Eb("https://github.com/creativecreatorormaybenot/fireworks")},
 $S:0}
 F.PK.prototype={
-$0:function(){T.Eb("https://twitter.com/creativemaybeno")},
+$0:function(){T.Eb("https://twitter.com/creativemaybeno/status/1344848563264770048?s=20")},
 $S:0}
 F.rV.prototype={
 p:function(a){this.bd(0)},
