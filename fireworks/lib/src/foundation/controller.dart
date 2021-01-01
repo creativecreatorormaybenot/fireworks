@@ -174,7 +174,7 @@ class FireworkController implements Listenable {
   }
 
   /// How many particles will be spawned when a rocket explodes.
-  int explosionParticleCount = 124;
+  int explosionParticleCount = 96;
 
   void _createExplosion(FireworkRocket rocket) {
     for (var i = 0; i < explosionParticleCount; i++) {
