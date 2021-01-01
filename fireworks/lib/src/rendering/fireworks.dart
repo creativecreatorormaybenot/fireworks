@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:fireworks/src/foundation/controller.dart';
 import 'package:flutter/gestures.dart';
@@ -73,9 +74,10 @@ class RenderFireworks extends RenderBox {
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
           height: 1,
+          color: null,
           foreground: Paint()
             ..style = PaintingStyle.stroke
-            ..strokeWidth = fontSize / 72
+            ..strokeWidth = 6
             ..strokeCap = StrokeCap.round
             ..color = const Color(0xffffffff),
         ),
@@ -125,6 +127,19 @@ class RenderFireworks extends RenderBox {
 
   void _drawBackground(Canvas canvas) {
     canvas.drawPaint(Paint()..color = const Color(0xff000000));
+
+    // Draw stars.
+    final random = Random(42);
+    for (var i = 0; i < 199; i++) {
+      canvas.drawCircle(
+        Offset(
+          random.nextDouble() * size.width,
+          random.nextDouble() * size.height,
+        ),
+        size.shortestSide / 4e2 * pow(random.nextDouble().clamp(1 / 5, 1), 2),
+        Paint()..color = Color(0xffffffff),
+      );
+    }
   }
 
   void _drawFireworks(Canvas canvas) {
@@ -164,7 +179,8 @@ class RenderFireworks extends RenderBox {
           ..color = HSVColor.fromAHSV(
                   particle.alpha, particle.hue % 360, 1, particle.brightness)
               .toColor()
-          ..strokeWidth = 2.5
+          ..blendMode = BlendMode.screen
+          ..strokeWidth = 3
           ..style = PaintingStyle.stroke,
       );
     }

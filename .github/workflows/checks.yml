@@ -32,7 +32,6 @@ jobs:
           - 'fireworks'
           - 'fireworks_counter'
           - 'fireworks_demo'
-          - 'fireworks_gif'
       fail-fast: false
 
     steps:

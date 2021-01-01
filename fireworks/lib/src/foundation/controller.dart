@@ -105,12 +105,12 @@ class FireworkController implements Listenable {
       rockets.add(FireworkRocket(
         random: _random,
         start: Point(
-          8 + _random.nextDouble() * (windowSize.width - 16),
+          32 + _random.nextDouble() * (windowSize.width - 32) - 32,
           windowSize.height * 1.2,
         ),
         target: Point(
-          8 + _random.nextDouble() * (windowSize.width - 16),
-          8 + _random.nextDouble() * windowSize.height * 2 / 3,
+          8 + _random.nextDouble() * (windowSize.width - 8) - 8,
+          8 + _random.nextDouble() * windowSize.height * 4 / 7,
         ),
         hue: _globalHue,
       ));
