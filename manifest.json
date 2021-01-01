@@ -1,22 +1,17 @@
 {
-    "name": "fireworks_demo",
-    "short_name": "fireworks_demo",
+    "name": "Fireworks",
+    "short_name": "fireworks",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Virtual fireworks.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
+            "src": "icons/icon-160.png",
+            "sizes": "160x160",
             "type": "image/png"
         }
     ]
