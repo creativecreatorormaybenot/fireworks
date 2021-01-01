@@ -18,7 +18,7 @@ class FireworkRocket extends FireworkObjectWithTrail {
         angle = atan2(target.y - start.y, target.x - start.x),
         brightness = .5 + random.nextDouble() * .2,
         super(
-          trailCount: 3,
+          trailCount: 2,
           position: start,
           random: random,
         );
@@ -30,8 +30,8 @@ class FireworkRocket extends FireworkObjectWithTrail {
   final double targetDistance;
   double distanceTraveled = 0;
 
-  double velocity = 1.5;
-  final double acceleration = 1.034;
+  double velocity = 1;
+  final double acceleration = 1.025;
 
   final double hue;
   final double brightness;
