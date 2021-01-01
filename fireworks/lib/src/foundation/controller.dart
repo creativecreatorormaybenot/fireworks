@@ -85,7 +85,10 @@ class FireworkController implements Listenable {
   /// Launches the rockets at random positions.
   ///
   /// Set this to [Duration.zero] to not launch any rockets automatically.
-  Duration autoLaunchDuration = Duration(milliseconds: 420);
+  Duration autoLaunchDuration = Duration(seconds: 1);
+
+  FireworkRocket? _rocketToSpawn;
+  Duration _lastRocketSpawn = Duration.zero;
 
   void _update(Duration elapsedDuration) {
     if (windowSize == Size.zero) {
@@ -111,6 +114,14 @@ class FireworkController implements Listenable {
         ),
         hue: _globalHue,
       ));
+    }
+
+    if (_rocketToSpawn != null &&
+        rocketSpawnTimeout != Duration.zero &&
+        elapsedDuration - _lastRocketSpawn >= rocketSpawnTimeout) {
+      rockets.add(_rocketToSpawn!);
+      _rocketToSpawn = null;
+      _lastRocketSpawn = elapsedDuration;
     }
 
     for (final rocket in rockets) {
@@ -141,8 +152,29 @@ class FireworkController implements Listenable {
     }
   }
 
+  /// The duration that has to elapse before the rocket added by [spawnRocket]
+  /// will be spawned.
+  ///
+  /// Set this to [Duration.zero] if you want to forbid manual spawns.
+  Duration rocketSpawnTimeout = Duration(milliseconds: 24);
+
+  /// Launches a new [FireworkRocket] with the given [target].
+  ///
+  /// At most one rocket per [rocketSpawnTimeout] will be spawned.
+  void spawnRocket(Point<double> target) {
+    _rocketToSpawn = FireworkRocket(
+      random: _random,
+      start: Point(
+        windowSize.width / 2,
+        windowSize.height * 1.2,
+      ),
+      target: target,
+      hue: _globalHue,
+    );
+  }
+
   /// How many particles will be spawned when a rocket explodes.
-  int explosionParticleCount = 42;
+  int explosionParticleCount = 124;
 
   void _createExplosion(FireworkRocket rocket) {
     for (var i = 0; i < explosionParticleCount; i++) {

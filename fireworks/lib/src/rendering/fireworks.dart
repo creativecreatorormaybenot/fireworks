@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:fireworks/src/foundation/controller.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 
 class RenderFireworks extends RenderBox {
@@ -9,16 +12,34 @@ class RenderFireworks extends RenderBox {
   // todo(creativecreatorormaybenot): implement updating the controller.
   final FireworkController controller;
 
+  late final PanGestureRecognizer _panGestureRecognizer;
+
   @override
   void attach(covariant PipelineOwner owner) {
     super.attach(owner);
 
     controller.addListener(markNeedsPaint);
+
+    _panGestureRecognizer = PanGestureRecognizer(debugOwner: this)
+      ..onStart = (details) {
+        controller.spawnRocket(Point(
+          details.localPosition.dx,
+          details.localPosition.dy,
+        ));
+      }
+      ..onUpdate = (details) {
+        controller.spawnRocket(Point(
+          details.localPosition.dx,
+          details.localPosition.dy,
+        ));
+      };
   }
 
   @override
   void detach() {
     controller.removeListener(markNeedsPaint);
+
+    _panGestureRecognizer.dispose();
 
     super.detach();
   }
@@ -55,6 +76,7 @@ class RenderFireworks extends RenderBox {
           foreground: Paint()
             ..style = PaintingStyle.stroke
             ..strokeWidth = fontSize / 72
+            ..strokeCap = StrokeCap.round
             ..color = const Color(0xffffffff),
         ),
       ),
@@ -71,6 +93,20 @@ class RenderFireworks extends RenderBox {
       ),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: constraints.biggest.width);
+  }
+
+  @override
+  bool hitTestSelf(Offset position) {
+    return size.contains(position);
+  }
+
+  @override
+  void handleEvent(PointerEvent event, covariant BoxHitTestEntry entry) {
+    assert(debugHandleEvent(event, entry));
+
+    if (event is PointerDownEvent) {
+      _panGestureRecognizer.addPointer(event);
+    }
   }
 
   @override
