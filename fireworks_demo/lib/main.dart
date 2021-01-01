@@ -19,9 +19,7 @@ class _Fireworks extends StatefulWidget {
 class _FireworksState extends State<_Fireworks>
     with SingleTickerProviderStateMixin {
   late final _controller = FireworkController(vsync: this)
-    ..start()
-    ..autoLaunchDuration = Duration(milliseconds: 142)
-    ..explosionParticleCount = 242;
+    ..start();
 
   @override
   void dispose() {

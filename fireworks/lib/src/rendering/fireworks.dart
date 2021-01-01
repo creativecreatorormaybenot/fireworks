@@ -13,34 +13,16 @@ class RenderFireworks extends RenderBox {
   // todo(creativecreatorormaybenot): implement updating the controller.
   final FireworkController controller;
 
-  late final PanGestureRecognizer _panGestureRecognizer;
-
   @override
   void attach(covariant PipelineOwner owner) {
     super.attach(owner);
 
     controller.addListener(markNeedsPaint);
-
-    _panGestureRecognizer = PanGestureRecognizer(debugOwner: this)
-      ..onStart = (details) {
-        controller.spawnRocket(Point(
-          details.localPosition.dx,
-          details.localPosition.dy,
-        ));
-      }
-      ..onUpdate = (details) {
-        controller.spawnRocket(Point(
-          details.localPosition.dx,
-          details.localPosition.dy,
-        ));
-      };
   }
 
   @override
   void detach() {
     controller.removeListener(markNeedsPaint);
-
-    _panGestureRecognizer.dispose();
 
     super.detach();
   }
@@ -106,8 +88,11 @@ class RenderFireworks extends RenderBox {
   void handleEvent(PointerEvent event, covariant BoxHitTestEntry entry) {
     assert(debugHandleEvent(event, entry));
 
-    if (event is PointerDownEvent) {
-      _panGestureRecognizer.addPointer(event);
+    if (event is PointerHoverEvent) {
+      controller.spawnRocket(Point(
+        event.localPosition.dx,
+        event.localPosition.dy,
+      ));
     }
   }
 
