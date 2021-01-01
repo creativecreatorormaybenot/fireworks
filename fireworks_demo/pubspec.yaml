@@ -1,5 +1,5 @@
 name: fireworks_demo
-description: A new Flutter project. # todo
+description: Demo app for the fireworks package.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -12,3 +12,10 @@ dependencies:
 
   fireworks:
     path: ../fireworks
+
+  url_launcher: ^5.7.10
+
+flutter:
+  assets:
+    - 'assets/twitter.png'
+    - 'assets/github.png'
