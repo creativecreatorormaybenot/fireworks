@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:fireworks/src/foundation/controller.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 
@@ -58,7 +59,8 @@ class RenderFireworks extends RenderBox {
           height: 1,
           color: null,
           foreground: Paint()
-            ..style = PaintingStyle.stroke
+            // On web, the stroke does not seem to work properly.
+            ..style = kIsWeb ? PaintingStyle.fill : PaintingStyle.stroke
             ..strokeWidth = 6
             ..strokeCap = StrokeCap.round
             ..color = const Color(0xffffffff),
@@ -106,25 +108,13 @@ class RenderFireworks extends RenderBox {
     _drawBackground(canvas);
     _drawFireworks(canvas);
     _drawYear(canvas);
+    _drawStars(canvas);
 
     canvas.restore();
   }
 
   void _drawBackground(Canvas canvas) {
     canvas.drawPaint(Paint()..color = const Color(0xff000000));
-
-    // Draw stars.
-    final random = Random(42);
-    for (var i = 0; i < 199; i++) {
-      canvas.drawCircle(
-        Offset(
-          random.nextDouble() * size.width,
-          random.nextDouble() * size.height,
-        ),
-        size.shortestSide / 4e2 * pow(random.nextDouble().clamp(1 / 5, 1), 2),
-        Paint()..color = Color(0xffffffff),
-      );
-    }
   }
 
   void _drawFireworks(Canvas canvas) {
@@ -197,5 +187,19 @@ class RenderFireworks extends RenderBox {
       ),
     );
     canvas.restore();
+  }
+
+  void _drawStars(Canvas canvas) {
+    final random = Random(42);
+    for (var i = 0; i < 199; i++) {
+      canvas.drawCircle(
+        Offset(
+          random.nextDouble() * size.width,
+          random.nextDouble() * size.height,
+        ),
+        size.shortestSide / 4e2 * pow(random.nextDouble().clamp(1 / 5, 1), 2),
+        Paint()..color = Color(0xffffffff),
+      );
+    }
   }
 }
