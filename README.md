@@ -1,4 +1,4 @@
-# fireworks | [View demo](https://fireworks.creativemaybeno.dev) | [![Twitter Follow](https://img.shields.io/twitter/follow/creativemaybeno?label=Follow&style=social)](https://twitter.com/creativemaybeno)
+# fireworks
 
 Interactive fireworks app written in Flutter.
 
