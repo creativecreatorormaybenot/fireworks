@@ -161,8 +161,11 @@ class FireworkController implements Listenable {
   /// Launches a new [FireworkRocket] with the given [target].
   ///
   /// At most one rocket per [rocketSpawnTimeout] will be spawned.
-  void spawnRocket(Point<double> target) {
-    _rocketToSpawn = FireworkRocket(
+  ///
+  /// If [forceSpawn] is `true`, the [rocketSpawnTimeout] and related logic will
+  /// be ignored and the rocket will be spawned immediately.
+  void spawnRocket(Point<double> target, {bool forceSpawn = false}) {
+    final rocket = FireworkRocket(
       random: _random,
       start: Point(
         windowSize.width / 2,
@@ -171,6 +174,12 @@ class FireworkController implements Listenable {
       target: target,
       hue: _globalHue,
     );
+
+    if (forceSpawn) {
+      rockets.add(rocket);
+      return;
+    }
+    _rocketToSpawn = rocket;
   }
 
   /// How many particles will be spawned when a rocket explodes.
