@@ -1,4 +1,4 @@
-# fireworks 
+# fireworks [![Twitter Follow](https://img.shields.io/twitter/follow/creativemaybeno?label=Follow&style=social)](https://twitter.com/creativemaybeno)
 
 Interactive app(s) for showing fireworks using [Flutter]'s canvas.
 
@@ -9,7 +9,7 @@ fireworks and launch your own firework rockets by hovering with the mouse :)
 
 [![](https://i.ibb.co/G240Lth/Screen-Shot-2021-01-01-at-3-10-00-AM.png)][live demo]
 
-You can [checkout the tweet]((https://twitter.com/creativemaybeno/status/1344848563264770048?s=20))
+You can [checkout the tweet](https://twitter.com/creativemaybeno/status/1344848563264770048?s=20)
 I made about it. 
 
 ## Counter app
