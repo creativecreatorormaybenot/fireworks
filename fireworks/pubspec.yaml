@@ -1,5 +1,5 @@
 name: fireworks
-description: A new Flutter package project.
+description: Package for displaying virtual fireworks in Flutter.
 version: 0.0.1
 publish_to: 'none'
 

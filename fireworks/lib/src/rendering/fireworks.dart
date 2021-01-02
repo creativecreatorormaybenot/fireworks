@@ -8,11 +8,39 @@ import 'package:flutter/rendering.dart';
 
 class RenderFireworks extends RenderBox {
   RenderFireworks({
-    required this.controller,
-  });
+    required FireworkController controller,
+    required bool showYear,
+  })   : _controller = controller,
+        _showYear = showYear;
 
-  // todo(creativecreatorormaybenot): implement updating the controller.
-  final FireworkController controller;
+  /// The controller that manages the fireworks and tells the render box what
+  /// and when to paint.
+  FireworkController get controller => _controller;
+  FireworkController _controller;
+
+  set controller(FireworkController value) {
+    if (controller == value) return;
+
+    // Detach old controller.
+    _controller.removeListener(markNeedsPaint);
+    _controller = value;
+
+    // Attach new controller.
+    controller.addListener(markNeedsPaint);
+  }
+
+  /// Whether to paint the year text in the foreground.
+  ///
+  /// When `false`, the year text is completely omitted.
+  bool get showYear => _showYear;
+  bool _showYear;
+
+  set showYear(bool value) {
+    if (showYear == value) return;
+
+    _showYear = value;
+    markNeedsPaint();
+  }
 
   @override
   void attach(covariant PipelineOwner owner) {
@@ -107,7 +135,7 @@ class RenderFireworks extends RenderBox {
 
     _drawBackground(canvas);
     _drawFireworks(canvas);
-    _drawYear(canvas);
+    if (showYear) _drawYear(canvas);
     _drawStars(canvas);
 
     canvas.restore();

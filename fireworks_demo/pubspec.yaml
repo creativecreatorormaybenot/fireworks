@@ -17,5 +17,5 @@ dependencies:
 
 flutter:
   assets:
-    - 'assets/twitter.png'
     - 'assets/github.png'
+    - 'assets/twitter.png'
