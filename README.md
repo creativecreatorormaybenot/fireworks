@@ -34,7 +34,7 @@ and modified just a few lines of code to add the fireworks to it :)
 Because I had already implemented the `fireworks` package in an abstract way before, I was able
 to simply drop the widget and the controller into the counter app and transform it in a matter of
 minutes.  
-You can also [checkout the tweet]() for this one.
+You can also [checkout the tweet](https://twitter.com/creativemaybeno/status/1345338801867157504?s=20) for this one.
 
 [Flutter]: https://github.com/flutter/flutter
 [live demo]: https://fireworks.creativemaybeno.dev
