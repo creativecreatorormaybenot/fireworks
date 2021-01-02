@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'fireworks/lib/**'
+      - 'fireworks/pubspec.yaml'
       - 'fireworks_demo/lib/**'
       - 'fireworks_demo/web/**'
       - 'fireworks_demo/pubspec.yaml'
