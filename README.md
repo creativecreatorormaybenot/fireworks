@@ -1,4 +1,4 @@
-# fireworks [![Twitter Follow](https://img.shields.io/twitter/follow/creativemaybeno?label=Follow&style=social)](https://twitter.com/creativemaybeno)
+# fireworks [![demo badge](https://img.shields.io/badge/fireworks-demo-yellow)][live demo] [![Twitter Follow](https://img.shields.io/twitter/follow/creativemaybeno?label=Follow&style=social)](https://twitter.com/creativemaybeno)
 
 Interactive app(s) for showing fireworks using [Flutter]'s canvas.
 
