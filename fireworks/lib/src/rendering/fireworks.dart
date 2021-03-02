@@ -9,9 +9,8 @@ import 'package:flutter/rendering.dart';
 class RenderFireworks extends RenderBox {
   RenderFireworks({
     required FireworkController controller,
-    required bool showYear,
   })   : _controller = controller,
-        _showYear = showYear;
+        _previousTitle = controller.title;
 
   /// The controller that manages the fireworks and tells the render box what
   /// and when to paint.
@@ -29,31 +28,29 @@ class RenderFireworks extends RenderBox {
     controller.addListener(markNeedsPaint);
   }
 
-  /// Whether to paint the year text in the foreground.
-  ///
-  /// When `false`, the year text is completely omitted.
-  bool get showYear => _showYear;
-  bool _showYear;
-
-  set showYear(bool value) {
-    if (showYear == value) return;
-
-    _showYear = value;
-    markNeedsPaint();
-  }
-
   @override
   void attach(covariant PipelineOwner owner) {
     super.attach(owner);
 
-    controller.addListener(markNeedsPaint);
+    controller.addListener(_handleControllerUpdate);
   }
 
   @override
   void detach() {
-    controller.removeListener(markNeedsPaint);
+    controller.removeListener(_handleControllerUpdate);
 
     super.detach();
+  }
+
+  String _previousTitle;
+
+  void _handleControllerUpdate() {
+    if (_previousTitle != controller.title) {
+      _previousTitle = controller.title;
+      // We need to relayout because the text painters need to change.
+      markNeedsLayout();
+    }
+    markNeedsPaint();
   }
 
   @override
@@ -71,16 +68,15 @@ class RenderFireworks extends RenderBox {
     return constraints.biggest;
   }
 
-  late TextPainter _yearStrokePainter, _yearPainter;
+  late TextPainter _titleStrokePainter, _titlePainter;
 
   @override
   void performLayout() {
-    final year = DateTime.now().add(Duration(days: 65)).year.toString();
-    final fontSize = constraints.maxWidth / year.length * 5 / 4;
+    final fontSize = constraints.maxWidth / controller.title.length * 5 / 4;
 
-    _yearStrokePainter = TextPainter(
+    _titleStrokePainter = TextPainter(
       text: TextSpan(
-        text: year,
+        text: controller.title,
         style: TextStyle(
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
@@ -96,9 +92,9 @@ class RenderFireworks extends RenderBox {
       ),
       textDirection: TextDirection.ltr,
     )..layout(maxWidth: constraints.biggest.width);
-    _yearPainter = TextPainter(
+    _titlePainter = TextPainter(
       text: TextSpan(
-        text: year,
+        text: controller.title,
         style: TextStyle(
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
@@ -135,7 +131,7 @@ class RenderFireworks extends RenderBox {
 
     _drawBackground(canvas);
     _drawFireworks(canvas);
-    if (showYear) _drawYear(canvas);
+    _drawTitle(canvas);
     _drawStars(canvas);
 
     canvas.restore();
@@ -189,16 +185,18 @@ class RenderFireworks extends RenderBox {
     }
   }
 
-  void _drawYear(Canvas canvas) {
+  void _drawTitle(Canvas canvas) {
+    if (_controller.title.isEmpty) return;
+
     canvas.saveLayer(
       Offset.zero & size,
       Paint()..blendMode = BlendMode.difference,
     );
-    _yearStrokePainter.paint(
+    _titleStrokePainter.paint(
       canvas,
       Offset(
-        (size.width - _yearStrokePainter.width) / 2,
-        (size.height - _yearStrokePainter.height) / 2,
+        (size.width - _titleStrokePainter.width) / 2,
+        (size.height - _titleStrokePainter.height) / 2,
       ),
     );
     canvas.restore();
@@ -207,11 +205,11 @@ class RenderFireworks extends RenderBox {
       Offset.zero & size,
       Paint()..blendMode = BlendMode.colorDodge,
     );
-    _yearPainter.paint(
+    _titlePainter.paint(
       canvas,
       Offset(
-        (size.width - _yearStrokePainter.width) / 2,
-        (size.height - _yearStrokePainter.height) / 2,
+        (size.width - _titleStrokePainter.width) / 2,
+        (size.height - _titleStrokePainter.height) / 2,
       ),
     );
     canvas.restore();

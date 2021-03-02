@@ -57,7 +57,8 @@ class _MyHomePageState extends State<MyHomePage>
   late final FireworkController _controller = FireworkController(vsync: this)
     ..start()
     ..autoLaunchDuration = Duration.zero
-    ..rocketSpawnTimeout = Duration.zero;
+    ..rocketSpawnTimeout = Duration.zero
+    ..title = '';
   final _random = Random();
 
   void _incrementCounter() {
@@ -103,7 +104,6 @@ class _MyHomePageState extends State<MyHomePage>
         children: [
           Fireworks(
             controller: _controller,
-            showYear: false,
           ),
           Center(
             // Center is a layout widget. It takes a single child and positions it

@@ -18,6 +18,7 @@ class FireworkController implements Listenable {
   })   : rockets = [],
         particles = [],
         _listeners = [],
+        _title = DateTime.now().add(Duration(days: 65)).year.toString(),
         _random = Random();
 
   /// Provider for the ticker that updates the controller.
@@ -33,6 +34,23 @@ class FireworkController implements Listenable {
   ///
   /// This has to be set by the renderer.
   Size windowSize = Size.zero;
+
+  /// The title of the fireworks animation that is displayed in the center
+  /// of the animation.
+  ///
+  /// By default shows the year 65 days from now.
+  ///
+  /// Set this to an empty string in order to hide the title.
+  String get title => _title;
+  String _title;
+
+  set title(String value) {
+    if (value == title) return;
+
+    // No need to notify about this change as _update is constantly being
+    // called anyway.
+    _title = value;
+  }
 
   final Random _random;
 
