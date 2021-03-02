@@ -10,9 +10,9 @@ const RESOURCES = {
 "assets/FontManifest.json": "d751713988987e9331980363e24189ce",
 "version.json": "9db1e0c4aec0f798874030a16af7b777",
 "manifest.json": "fbc8a69e78a80e00884eb26947f5c667",
-"index.html": "cbbd6f65915791fc8397e864bc95ffdc",
-"/": "cbbd6f65915791fc8397e864bc95ffdc",
-"main.dart.js": "5bb1cfe7d2debf28c4560342196bef80",
+"index.html": "3929cd7316963ca13da8fa47ec90d43b",
+"/": "3929cd7316963ca13da8fa47ec90d43b",
+"main.dart.js": "a93318f27519d5d5cf6971b697e16f58",
 "icons/icon-160.png": "de3c54af5dffb0711c0d293bc7518fdb"
 };
 
