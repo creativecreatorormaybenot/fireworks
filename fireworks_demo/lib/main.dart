@@ -48,7 +48,7 @@ class _FireworksState extends State<_Fireworks>
     text: _controller.explosionParticleCount.toString(),
   );
   late final _particleSizeEditingController = TextEditingController(
-    text: _controller.particleSize.toString(),
+    text: (_controller.particleSize * 10 ~/ 1).toString(),
   );
 
   var _showInfoOverlay = false;
@@ -205,10 +205,10 @@ class _FireworksState extends State<_Fireworks>
                               _ConfigurationTextField(
                                 controller: _particleSizeEditingController,
                                 digitsOnly: true,
-                                helperText: 'Particle size in px',
+                                helperText: 'Particle size over ten in px',
                                 onChanged: (value) {
                                   _controller.particleSize =
-                                      value.isEmpty ? 0 : double.parse(value);
+                                      value.isEmpty ? 0 : int.parse(value) / 10;
                                 },
                               ),
                               const Spacer(),
