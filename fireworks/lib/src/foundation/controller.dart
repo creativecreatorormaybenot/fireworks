@@ -105,6 +105,24 @@ class FireworkController implements Listenable {
   /// Set this to [Duration.zero] to not launch any rockets automatically.
   Duration autoLaunchDuration = Duration(seconds: 1);
 
+  /// The particle size for both the firework rockets and particles.
+  ///
+  /// Note that the [particleSize] is used as is for the stroke width of the
+  /// particles while the stroke width of the rocket is one less.
+  /// Also note that this will be clamped to a minimum of 0.
+  double get particleSize => _particleSize;
+  double _particleSize = 3;
+
+  set particleSize(double value) {
+    _particleSize = max(1, value);
+  }
+
+  /// The rocket size for the firework rockets.
+  ///
+  /// This is based on [particleSize], which is why this might seem like
+  /// duplication.
+  double get _rocketSize => max(0, particleSize - 1);
+
   FireworkRocket? _rocketToSpawn;
   Duration _lastRocketSpawn = Duration.zero;
 
@@ -131,6 +149,7 @@ class FireworkController implements Listenable {
           8 + _random.nextDouble() * windowSize.height * 4 / 7,
         ),
         hue: _globalHue,
+        size: _rocketSize,
       ));
     }
 
@@ -191,6 +210,7 @@ class FireworkController implements Listenable {
       ),
       target: target,
       hue: _globalHue,
+      size: _rocketSize,
     );
 
     if (forceSpawn) {
@@ -209,6 +229,7 @@ class FireworkController implements Listenable {
         random: _random,
         position: rocket.position,
         hueBaseValue: rocket.hue,
+        size: particleSize,
       ));
     }
   }

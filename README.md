@@ -2,6 +2,8 @@
 
 Interactive app(s) for showing fireworks using [Flutter]'s canvas.
 
+[![](https://i.imgur.com/BwNy3gp.jpg)][live demo]
+
 ## Repo structure
 
 To allow for both the [live demo] and counter app using the same code for rendering the actual

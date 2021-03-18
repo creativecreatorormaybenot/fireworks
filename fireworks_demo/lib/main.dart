@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fireworks/fireworks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,6 +44,12 @@ class _FireworksState extends State<_Fireworks>
   late final _spawnTimeoutEditingController = TextEditingController(
     text: _controller.rocketSpawnTimeout.inMilliseconds.toString(),
   );
+  late final _particleCountEditingController = TextEditingController(
+    text: _controller.explosionParticleCount.toString(),
+  );
+  late final _particleSizeEditingController = TextEditingController(
+    text: _controller.particleSize.toString(),
+  );
 
   var _showInfoOverlay = false;
 
@@ -51,6 +59,8 @@ class _FireworksState extends State<_Fireworks>
     _titleEditingController.dispose();
     _autoLaunchEditingController.dispose();
     _spawnTimeoutEditingController.dispose();
+    _particleCountEditingController.dispose();
+    _particleSizeEditingController.dispose();
     super.dispose();
   }
 
@@ -179,6 +189,26 @@ class _FireworksState extends State<_Fireworks>
                                       : Duration(
                                           milliseconds: int.parse(value),
                                         );
+                                },
+                              ),
+                              _ConfigurationTextField(
+                                controller: _particleCountEditingController,
+                                digitsOnly: true,
+                                helperText: 'Particle count',
+                                onChanged: (value) {
+                                  _controller.explosionParticleCount =
+                                      value.isEmpty
+                                          ? 0
+                                          : max(0, int.parse(value));
+                                },
+                              ),
+                              _ConfigurationTextField(
+                                controller: _particleSizeEditingController,
+                                digitsOnly: true,
+                                helperText: 'Particle size in px',
+                                onChanged: (value) {
+                                  _controller.particleSize =
+                                      value.isEmpty ? 0 : double.parse(value);
                                 },
                               ),
                               const Spacer(),
