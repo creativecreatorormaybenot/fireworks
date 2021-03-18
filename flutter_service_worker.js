@@ -10,9 +10,9 @@ const RESOURCES = {
 "assets/assets/twitter.png": "4607476796cc93ca75cfeccf2661fd1a",
 "assets/AssetManifest.json": "e6ca8fe54fcc0b23553ba0b6a136e430",
 "assets/FontManifest.json": "d751713988987e9331980363e24189ce",
-"index.html": "e41e63bb7af85cdb9f18a8c1aba5f4aa",
-"/": "e41e63bb7af85cdb9f18a8c1aba5f4aa",
-"main.dart.js": "f4cf8be15de048f77f728791325edc7f",
+"index.html": "839eb1268f0bb17253034d6eea349cc5",
+"/": "839eb1268f0bb17253034d6eea349cc5",
+"main.dart.js": "cf6898a115eac2a553a1ddb8f62f2848",
 "version.json": "9db1e0c4aec0f798874030a16af7b777"
 };
 
