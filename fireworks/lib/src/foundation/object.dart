@@ -12,7 +12,9 @@ abstract class FireworkObjectWithTrail {
     required this.random,
     required this.trailCount,
     required this.position,
-  }) : trailPoints = [
+    required this.size,
+  })   : assert(size >= 0),
+        trailPoints = [
           // Fill the trail with the starting position initially.
           for (var i = 0; i < trailCount; i++) position,
         ];
@@ -28,6 +30,11 @@ abstract class FireworkObjectWithTrail {
   final int trailCount;
 
   final List<Point<double>> trailPoints;
+
+  /// The particle size in logical pixels.
+  ///
+  /// This size will be used for the stroke width.
+  final double size;
 
   /// Updates the state of the object.
   @mustCallSuper

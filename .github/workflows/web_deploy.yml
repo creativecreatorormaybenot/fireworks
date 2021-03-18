@@ -1,4 +1,4 @@
-name: Demo deployment
+name: demo
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
   demo-deploy:
     timeout-minutes: 6
     runs-on: ubuntu-latest
-    name: Fireworks demo page
+    name: web deployment
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -24,13 +24,12 @@ jobs:
           persist-credentials: false
       - uses: subosito/flutter-action@v1.4.0
         with:
-          channel: dev
+          channel: 'dev'
 
       - name: Build demo web app
         run: |
           cd fireworks_demo
           flutter pub get
-          flutter config --enable-web
           flutter build web --web-renderer canvaskit
           cd build/web
           touch ".nojekyll"

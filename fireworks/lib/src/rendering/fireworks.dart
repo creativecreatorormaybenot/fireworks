@@ -146,7 +146,7 @@ class RenderFireworks extends RenderBox {
       final paint = Paint()
         ..color =
             HSVColor.fromAHSV(1, rocket.hue, 1, rocket.brightness).toColor()
-        ..strokeWidth = 2
+        ..strokeWidth = rocket.size
         ..style = PaintingStyle.stroke;
 
       canvas.drawPath(
@@ -179,7 +179,7 @@ class RenderFireworks extends RenderBox {
                   particle.alpha, particle.hue % 360, 1, particle.brightness)
               .toColor()
           ..blendMode = BlendMode.screen
-          ..strokeWidth = 3
+          ..strokeWidth = particle.size
           ..style = PaintingStyle.stroke,
       );
     }
