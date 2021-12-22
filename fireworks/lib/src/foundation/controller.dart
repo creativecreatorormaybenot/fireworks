@@ -18,7 +18,7 @@ class FireworkController implements Listenable {
   })   : rockets = [],
         particles = [],
         _listeners = [],
-        _title = DateTime.now().add(Duration(days: 65)).year.toString(),
+        _title = DateTime.now().add(Duration(days: 1)).year.toString(),
         _random = Random();
 
   /// Provider for the ticker that updates the controller.
