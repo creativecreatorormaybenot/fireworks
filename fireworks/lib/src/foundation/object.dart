@@ -13,7 +13,7 @@ abstract class FireworkObjectWithTrail {
     required this.trailCount,
     required this.position,
     required this.size,
-  })   : assert(size >= 0),
+  })  : assert(size >= 0),
         trailPoints = [
           // Fill the trail with the starting position initially.
           for (var i = 0; i < trailCount; i++) position,
