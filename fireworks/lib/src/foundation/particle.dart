@@ -11,7 +11,7 @@ class FireworkParticle extends FireworkObjectWithTrail {
     required Point<double> position,
     required double hueBaseValue,
     required double size,
-  })   : angle = random.nextDouble() * 2 * pi,
+  })  : angle = random.nextDouble() * 2 * pi,
         velocity = random.nextDouble() * 12 + 1,
         hue = hueBaseValue - 50 + random.nextDouble() * 100,
         brightness = .5 + random.nextDouble() * .3,

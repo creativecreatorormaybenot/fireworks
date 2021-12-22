@@ -24,26 +24,27 @@ jobs:
     strategy:
       matrix:
         channel:
-          # Exlcuding stable until web support reaches the stable channel.
-          # - 'stable'
+          - 'stable'
           - 'beta'
-          - 'dev'
+          - 'master'
         package:
           - 'fireworks'
           - 'fireworks_counter'
           - 'fireworks_demo'
       fail-fast: false
+    env:
+      working-directory: ${{ matrix.package }}
 
     steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: subosito/flutter-action@v1.4.0
+      - uses: actions/checkout@v2.3.5
+      - uses: subosito/flutter-action@v1.5.3
         with:
           channel: ${{ matrix.channel }}
       - name: pub get
         run: flutter pub get
-        working-directory: ${{ matrix.package }}
+        working-directory: ${{ env.working-directory }}
       - name: dart format
-        working-directory: ${{ matrix.package }}
         run: dart format . --fix --set-exit-if-changed
+        working-directory: ${{ env.working-directory }}
       - run: dart analyze
-        working-directory: ${{ matrix.package }}
+        working-directory: ${{ env.working-directory }}
