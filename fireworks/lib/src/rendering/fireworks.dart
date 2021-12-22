@@ -9,7 +9,7 @@ import 'package:flutter/rendering.dart';
 class RenderFireworks extends RenderBox {
   RenderFireworks({
     required FireworkController controller,
-  })   : _controller = controller,
+  })  : _controller = controller,
         _previousTitle = controller.title;
 
   /// The controller that manages the fireworks and tells the render box what

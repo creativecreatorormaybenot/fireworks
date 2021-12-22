@@ -15,7 +15,7 @@ class FireworkRocket extends FireworkObjectWithTrail {
     required this.target,
     required this.hue,
     required double size,
-  })   : targetDistance = target.distanceTo(start),
+  })  : targetDistance = target.distanceTo(start),
         angle = atan2(target.y - start.y, target.x - start.x),
         brightness = .5 + random.nextDouble() * .2,
         super(

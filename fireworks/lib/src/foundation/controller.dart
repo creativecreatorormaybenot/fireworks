@@ -15,7 +15,7 @@ import 'package:flutter/scheduler.dart';
 class FireworkController implements Listenable {
   FireworkController({
     required this.vsync,
-  })   : rockets = [],
+  })  : rockets = [],
         particles = [],
         _listeners = [],
         _title = DateTime.now().add(Duration(days: 65)).year.toString(),
