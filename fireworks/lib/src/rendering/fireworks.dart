@@ -77,7 +77,7 @@ class RenderFireworks extends RenderBox {
     _titleStrokePainter = TextPainter(
       text: TextSpan(
         text: controller.title,
-        style: GoogleFonts.lato(
+        style: GoogleFonts.inter(
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
           height: 1,
@@ -85,7 +85,7 @@ class RenderFireworks extends RenderBox {
           foreground: Paint()
             // On web, the stroke does not seem to work properly.
             ..style = kIsWeb ? PaintingStyle.fill : PaintingStyle.stroke
-            ..strokeWidth = 6
+            ..strokeWidth = 9
             ..strokeCap = StrokeCap.round
             ..color = const Color(0xffffffff),
         ),
@@ -95,7 +95,7 @@ class RenderFireworks extends RenderBox {
     _titlePainter = TextPainter(
       text: TextSpan(
         text: controller.title,
-        style: GoogleFonts.lato(
+        style: GoogleFonts.inter(
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
           height: 1,
