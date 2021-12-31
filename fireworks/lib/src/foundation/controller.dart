@@ -111,7 +111,7 @@ class FireworkController implements Listenable {
   /// particles while the stroke width of the rocket is one less.
   /// Also note that this will be clamped to a minimum of 0.
   double get particleSize => _particleSize;
-  double _particleSize = 3;
+  double _particleSize = 3.5;
 
   set particleSize(double value) {
     _particleSize = max(1, value);
@@ -193,7 +193,7 @@ class FireworkController implements Listenable {
   /// will be spawned.
   ///
   /// Set this to [Duration.zero] if you want to forbid manual spawns.
-  Duration rocketSpawnTimeout = Duration(milliseconds: 234);
+  Duration rocketSpawnTimeout = Duration(milliseconds: 420);
 
   /// Launches a new [FireworkRocket] with the given [target].
   ///
@@ -221,7 +221,7 @@ class FireworkController implements Listenable {
   }
 
   /// How many particles will be spawned when a rocket explodes.
-  int explosionParticleCount = 96;
+  int explosionParticleCount = 160;
 
   void _createExplosion(FireworkRocket rocket) {
     for (var i = 0; i < explosionParticleCount; i++) {
