@@ -1,10 +1,10 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:fireworks/src/foundation/controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RenderFireworks extends RenderBox {
   RenderFireworks({
@@ -77,7 +77,7 @@ class RenderFireworks extends RenderBox {
     _titleStrokePainter = TextPainter(
       text: TextSpan(
         text: controller.title,
-        style: TextStyle(
+        style: GoogleFonts.lato(
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
           height: 1,
@@ -95,7 +95,7 @@ class RenderFireworks extends RenderBox {
     _titlePainter = TextPainter(
       text: TextSpan(
         text: controller.title,
-        style: TextStyle(
+        style: GoogleFonts.lato(
           fontSize: fontSize,
           fontWeight: FontWeight.w900,
           height: 1,
