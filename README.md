@@ -2,7 +2,7 @@
 
 Interactive app(s) for showing fireworks using [Flutter]'s canvas.
 
-[![](https://i.imgur.com/BwNy3gp.jpg)][live demo]
+[<img width="1668" src="https://user-images.githubusercontent.com/19204050/147835938-4c33cf28-fe9b-43df-8e3c-40cdffe4601e.png">][live demo]
 
 ## Repo structure
 
@@ -21,7 +21,8 @@ fireworks, the repo contains the following packages:
 You can view a [live demo] of the `fireworks` package in action that allows you to both watch the
 fireworks and launch your own firework rockets by hovering with the mouse :)
 
-[![](https://i.ibb.co/G240Lth/Screen-Shot-2021-01-01-at-3-10-00-AM.png)][live demo]
+[![](https://user-images.githubusercontent.com/19204050/147836016-cc317dd6-e428-438f-b7d1-b9dd90253472.png)][live demo]
+
 
 You can [checkout the tweet](https://twitter.com/creativemaybeno/status/1344848563264770048?s=20)
 I made about it. 
