@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:fireworks/fireworks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
@@ -11,8 +11,10 @@ void main() {
   runApp(MaterialApp(
     title: 'Fireworks',
     theme: ThemeData(
-      primaryColor: Colors.black,
-      accentColor: Colors.yellowAccent,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: Colors.black,
+        secondary: Colors.yellowAccent,
+      ),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: Colors.black,
         selectionColor: Colors.yellow,
@@ -95,7 +97,7 @@ class _FireworksState extends State<_Fireworks>
                             cursor: MaterialStateMouseCursor.clickable,
                             child: GestureDetector(
                               onTap: () {
-                                launch(
+                                launchUrlString(
                                     'https://github.com/creativecreatorormaybenot/fireworks');
                               },
                               child: Padding(
@@ -118,7 +120,7 @@ class _FireworksState extends State<_Fireworks>
                             cursor: MaterialStateMouseCursor.clickable,
                             child: GestureDetector(
                               onTap: () {
-                                launch(
+                                launchUrlString(
                                     'https://twitter.com/creativemaybeno/status/1344848563264770048?s=20');
                               },
                               child: Padding(
