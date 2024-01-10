@@ -11,8 +11,10 @@ void main() {
   runApp(MaterialApp(
     title: 'Fireworks',
     theme: ThemeData(
-      primaryColor: Colors.black,
-      accentColor: Colors.yellowAccent,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: Colors.black,
+        secondary: Colors.yellowAccent,
+      ),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: Colors.black,
         selectionColor: Colors.yellow,
