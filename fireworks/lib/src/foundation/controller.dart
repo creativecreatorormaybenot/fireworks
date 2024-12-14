@@ -63,6 +63,7 @@ class FireworkController implements Listenable {
   double _globalHue = 42;
 
   late final Ticker _ticker;
+  var _paused = false;
 
   /// Starts the firework show.
   ///
@@ -72,6 +73,22 @@ class FireworkController implements Listenable {
     // We could also allow resyncing, however, this is not needed in the
     // standard use case.
     _ticker = vsync.createTicker(_update)..start();
+  }
+
+  /// Pauses the firework show.
+  ///
+  /// Can only be called while the firework show is running.
+  void pause() {
+    assert(!_paused);
+    _paused = true;
+  }
+
+  /// Resumes the firework show.
+  ///
+  /// Can only be called while the firework show is paused.
+  void resume() {
+    assert(_paused);
+    _paused = false;
   }
 
   final List<VoidCallback> _listeners;
@@ -127,6 +144,8 @@ class FireworkController implements Listenable {
   Duration _lastRocketSpawn = Duration.zero;
 
   void _update(Duration elapsedDuration) {
+    if (_paused) return;
+
     if (windowSize == Size.zero) {
       // We need to wait until we have the size.
       return;
