@@ -55,6 +55,7 @@ class _FireworksState extends State<_Fireworks>
   );
 
   var _showInfoOverlay = false;
+  var _isPaused = false;
 
   @override
   void dispose() {
@@ -73,6 +74,16 @@ class _FireworksState extends State<_Fireworks>
       onTap: () {
         setState(() {
           _showInfoOverlay = !_showInfoOverlay;
+        });
+      },
+      onSecondaryTap: () {
+        setState(() {
+          _isPaused = !_isPaused;
+          if (!_isPaused) {
+            _controller.pause();
+          } else {
+            _controller.resume();
+          }
         });
       },
       child: Stack(
@@ -151,6 +162,7 @@ class _FireworksState extends State<_Fireworks>
                               Text(
                                 'Hover with your mouse to launch fireworks to '
                                 'your mouse :)\n'
+                                'Right click to pause/resume the animation.\n'
                                 'Or just lean back and enjoy the show (:\n\n'
                                 'Click again to close this.',
                                 textAlign: TextAlign.center,
