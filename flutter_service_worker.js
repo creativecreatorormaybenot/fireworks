@@ -3,33 +3,38 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter.js": "7d69e653079438abfbb24b82a655b0a4",
-"manifest.json": "fbc8a69e78a80e00884eb26947f5c667",
-"index.html": "e5d89439f26241bbd832149ee097686a",
-"/": "e5d89439f26241bbd832149ee097686a",
+const RESOURCES = {"flutter.js": "4b2350e14c6650ba82871f60906437ea",
+"main.dart.js": "055dd28ab93fc364d7a34a123ce6372e",
+"assets/FontManifest.json": "d751713988987e9331980363e24189ce",
 "assets/AssetManifest.bin": "1d240ca8c778a9b5a8b48cfca7d6c2e4",
 "assets/assets/github.png": "ef7a02b69836dc8b6a732a54c4200dcb",
 "assets/assets/twitter.png": "4607476796cc93ca75cfeccf2661fd1a",
-"assets/AssetManifest.bin.json": "f9073bd253d8568cd325e2defc779a3c",
-"assets/FontManifest.json": "d751713988987e9331980363e24189ce",
-"assets/shaders/ink_sparkle.frag": "4096b5150bac93c41cbc9b45276bd90f",
-"assets/NOTICES": "b0b92e8fa7842e761b0cc200bb02ea1a",
+"assets/NOTICES": "9eb0980770786a4360bf92fb91cb6d0f",
+"assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.json": "e6ca8fe54fcc0b23553ba0b6a136e430",
-"main.dart.js": "9c7fbf3bc196447f32075a476195ab1d",
+"assets/AssetManifest.bin.json": "f9073bd253d8568cd325e2defc779a3c",
+"index.html": "c76191096d2c72af85cc8fabb5eae0d3",
+"/": "c76191096d2c72af85cc8fabb5eae0d3",
+"manifest.json": "fbc8a69e78a80e00884eb26947f5c667",
+"canvaskit/canvaskit.js": "26eef3024dbc64886b7f48e1b6fb05cf",
+"canvaskit/canvaskit.js.symbols": "efc2cd87d1ff6c586b7d4c7083063a40",
+"canvaskit/chromium/canvaskit.js": "b7ba6d908089f706772b2007c37e6da4",
+"canvaskit/chromium/canvaskit.js.symbols": "e115ddcfad5f5b98a90e389433606502",
+"canvaskit/chromium/canvaskit.wasm": "ea5ab288728f7200f398f60089048b48",
+"canvaskit/skwasm.js": "ac0f73826b925320a1e9b0d3fd7da61c",
+"canvaskit/skwasm.js.symbols": "96263e00e3c9bd9cd878ead867c04f3c",
+"canvaskit/canvaskit.wasm": "e7602c687313cfac5f495c5eac2fb324",
+"canvaskit/skwasm.wasm": "828c26a0b1cc8eb1adacbdd0c5e8bcfa",
+"canvaskit/skwasm.worker.js": "89990e8c92bcb123999aa81f7e203b1c",
+"icons/icon-160.png": "de3c54af5dffb0711c0d293bc7518fdb",
 "version.json": "69618af6fc8ab2aa8b8e9b2d1297cf20",
-"canvaskit/canvaskit.wasm": "73584c1a3367e3eaf757647a8f5c5989",
-"canvaskit/skwasm.js": "87063acf45c5e1ab9565dcf06b0c18b8",
-"canvaskit/skwasm.wasm": "2fc47c0a0c3c7af8542b601634fe9674",
-"canvaskit/skwasm.worker.js": "bfb704a6c714a75da9ef320991e88b03",
-"canvaskit/canvaskit.js": "eb8797020acdbdf96a12fb0405582c1b",
-"canvaskit/chromium/canvaskit.wasm": "143af6ff368f9cd21c863bfa4274c406",
-"canvaskit/chromium/canvaskit.js": "0ae8bbcc58155679458a0f7a00f66873",
-"icons/icon-160.png": "de3c54af5dffb0711c0d293bc7518fdb"};
+"flutter_bootstrap.js": "511a2a03cab7115357761aa17874033a"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
 "index.html",
-"assets/AssetManifest.json",
+"flutter_bootstrap.js",
+"assets/AssetManifest.bin.json",
 "assets/FontManifest.json"];
 
 // During install, the TEMP cache is populated with the application shell files.
